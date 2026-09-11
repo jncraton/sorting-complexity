@@ -1,7 +1,8 @@
-#include <iostream>
+#include <print>
 #include <vector>
 #include <chrono>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -36,11 +37,11 @@ int main() {
     chrono::duration<double> elapsed = end_time - start_time;
 
     for (int i = 0; i < n; ++i) {
-        cout << arr[i] << (i == n - 1 ? "" : " ");
+        std::print("{}{}", arr[i], (i == n - 1 ? "" : " "));
     }
-    cout << "\n";
-    cout << "Comparisons: " << comparisons << "\n";
-    cout << "Time: " << elapsed.count() << " seconds\n";
+    std::println("");
+    std::println("Comparisons: {}", comparisons);
+    std::println("Time: {} seconds", elapsed.count());
 
     return 0;
 }
