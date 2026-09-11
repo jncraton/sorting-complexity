@@ -8,6 +8,8 @@ After completing this project, students will be able:
 2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
 3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices
 
+![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/500px-UNESCO-Open_science-pillars-en.png)
+
 ## Task
 
 Each students merge their own sorting algorithms as C++ programs. This project then builds a web dashboard allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of raw execution time and in terms of the number of comparison operations used.
