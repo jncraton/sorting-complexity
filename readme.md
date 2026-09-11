@@ -12,6 +12,8 @@ After completing this project, students will be able:
 
 ![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/500px-UNESCO-Open_science-pillars-en.png)
 
+[Example Dashboard](https://jncraton.github.io/sorting-complexity/)
+
 ## Task
 
 Each student creates and merges their own sorting algorithm as a C++ program. A shared web dashboard is updated allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of wall time and the number of comparison operations used.
