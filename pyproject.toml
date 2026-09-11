@@ -1,0 +1,9 @@
+[project]
+name = "sorting-complexity"
+version = "0.1.0"
+description = "Sorting complexity dashboard"
+readme = "readme.md"
+requires-python = ">=3.12"
+dependencies = [
+    "plotly>=5.24.0",
+]
