@@ -14,7 +14,7 @@ After completing this project, students will be able:
 
 ## Task
 
-Each students merge their own sorting algorithms as C++ programs. This project then builds a web dashboard allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of raw execution time and in terms of the number of comparison operations used.
+Each student merges their own sorting algorithms as C++ programs. This project then builds a web dashboard allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of raw execution time and the number of comparison operations used.
 
 Programs live in the `algorithms` directory. Each program reads from standard input until EOF is reached. The program should output the list correctly sorted following by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
 
