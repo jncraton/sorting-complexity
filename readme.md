@@ -18,7 +18,7 @@ When this project is hosted on Github, Github Actions will automatically build t
 
 ## Building
 
-Running the included makefile will build all files, run analysis and generate the dashboard (<index.html>). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
+Running the included `makefile` will build all files, run analysis and generate the dashboard (<index.html>). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
 
 ```sh
 make
