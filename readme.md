@@ -1,5 +1,19 @@
 # Sorting Complexity
 
+This project provides student the opportunity to explore sorting algorithm complexity analysis through the lens of open science.
+
+Students merge their own sorting algorithms as C++ modules. This project then builds a web dashboard allowing comparison and exploration of the included algorithms.
+
+When this project is hosted on Github, Github Actions will automatically build the dashboards and push them to Github Pages for review. Students can contribute and review one another's work using pull requests.
+
+## Building
+
+Running the included makefile will build all files, run analysis and generate the dashboard (<index.html>). To build the dashboard locally, you'll need make and gcc 14.2 or higher. Simply run:
+
+```sh
+make
+```
+
 ## OCTOPUS
 
 This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about):
