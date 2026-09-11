@@ -56,4 +56,4 @@ This open resource is part of the [OCTOPUS project](https://qubeshub.org/communi
 
 ## PALSave Open Pedagogy
 
-This work is support by a PALSave Open Pedagogy grant. This grant offers support and recognition for creating or redesigning a course assignment that embraces open pedagogy-an approach that empowers students and makes learning more impactful. Your work will not only benefit your current students but also provide a valuable resource for future educators and learners.
+This work is supported by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants). This grant offers support and recognition for creating or redesigning a course assignment that embraces open pedagogy-an approach that empowers students and makes learning more impactful. Your work will not only benefit your current students but also provide a valuable resource for future educators and learners.
