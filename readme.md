@@ -4,9 +4,9 @@
 
 After completing this project, students will be able:
 
-1. Compare the time complexity of various sorting algorithms
-2. Collaborate on software projects
-3. Follow open science practices
+1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of various sorting algorithms
+2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
+3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices
 
 ## Task
 
