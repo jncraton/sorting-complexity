@@ -1,5 +1,7 @@
 # Sorting Complexity
 
+![Bubble Sort](https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
+
 ## Learning Outcomes
 
 After completing this project, students will be able:
