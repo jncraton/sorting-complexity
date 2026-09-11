@@ -153,6 +153,18 @@ def generate_dashboard(data):
                 yanchor="top",
                 buttons=[
                     dict(
+                        label="Linear Scale",
+                        method="relayout",
+                        args=[
+                            {
+                                "xaxis.type": "linear", "xaxis2.type": "linear", "xaxis3.type": "linear",
+                                "xaxis4.type": "linear", "xaxis5.type": "linear", "xaxis6.type": "linear",
+                                "yaxis.type": "linear", "yaxis2.type": "linear", "yaxis3.type": "linear",
+                                "yaxis4.type": "linear", "yaxis5.type": "linear", "yaxis6.type": "linear"
+                            }
+                        ]
+                    ),
+                    dict(
                         label="Log-Log Scale",
                         method="relayout",
                         args=[
@@ -164,18 +176,6 @@ def generate_dashboard(data):
                             }
                         ]
                     ),
-                    dict(
-                        label="Linear-Linear Scale",
-                        method="relayout",
-                        args=[
-                            {
-                                "xaxis.type": "linear", "xaxis2.type": "linear", "xaxis3.type": "linear",
-                                "xaxis4.type": "linear", "xaxis5.type": "linear", "xaxis6.type": "linear",
-                                "yaxis.type": "linear", "yaxis2.type": "linear", "yaxis3.type": "linear",
-                                "yaxis4.type": "linear", "yaxis5.type": "linear", "yaxis6.type": "linear"
-                            }
-                        ]
-                    )
                 ]
             )
         ]
