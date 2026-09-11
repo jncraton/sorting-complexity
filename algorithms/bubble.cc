@@ -37,7 +37,7 @@ int main() {
     chrono::duration<double> elapsed = end_time - start_time;
 
     for (int i = 0; i < n; ++i) {
-        std::print("{}{}", arr[i], (i == n - 1 ? "" : " "));
+        std::println("{}", arr[i]);
     }
     std::println("");
     std::println("Comparisons: {}", comparisons);

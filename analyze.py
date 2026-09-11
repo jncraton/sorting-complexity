@@ -58,24 +58,19 @@ def compile_algorithms():
                     sorted_elements = []
                     comp_val = 0
                     time_val = 0.0
-                    for line in output_lines:
+
+                    tokens = output_lines[:size]
+                    sorted_elements = [int(t) for t in tokens]
+
+                    if sorted_elements != sorted(lst):
+                        print(f"Error: Output not correctly sorted for {name} at size {size} ({mode})!", file=sys.stderr)
+                        sys.exit(1)
+
+                    for line in output_lines[-4:]:
                         if line.startswith("Comparisons:"):
                             comp_val = int(line.split(":")[1].strip())
                         elif line.startswith("Time:"):
                             time_val = float(line.split(":")[1].replace("seconds", "").strip())
-                        elif line.strip():
-                            # The sorted array might be printed as space-separated tokens on a line
-                            tokens = line.strip().split()
-                            if tokens:
-                                try:
-                                    sorted_elements = [int(t) for t in tokens]
-                                except ValueError:
-                                    pass
-
-                    if sorted_elements != sorted(lst):
-                        print(f"Error: Output not correctly sorted for {name} at size {size} ({mode})!", file=sys.stderr)
-                        print(f"Expected sorted list of length {len(lst)}, got {sorted_elements[:10]}...", file=sys.stderr)
-                        sys.exit(1)
 
                     algo_data[mode]["sizes"].append(size)
                     algo_data[mode]["times"].append(time_val)
