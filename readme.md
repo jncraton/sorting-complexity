@@ -1,14 +1,24 @@
 # Sorting Complexity
 
-This project provides student the opportunity to explore sorting algorithm complexity analysis through the lens of open science.
+## Learning Outcomes
 
-Students merge their own sorting algorithms as C++ modules. This project then builds a web dashboard allowing comparison and exploration of the included algorithms.
+After completing this project, students will be able:
+
+1. Compare the time complexity of various sorting algorithms
+2. Collaborate on software projects
+3. Follow open science practices
+
+## Task
+
+Each students merge their own sorting algorithms as C++ programs. This project then builds a web dashboard allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of raw execution time and in terms of the number of comparison operations used.
+
+Programs live in the `algorithms` directory. Each program reads from standard input until EOF is reached. An example bubble sort (bubble.cc) program is provided.
 
 When this project is hosted on Github, Github Actions will automatically build the dashboards and push them to Github Pages for review. Students can contribute and review one another's work using pull requests.
 
 ## Building
 
-Running the included makefile will build all files, run analysis and generate the dashboard (<index.html>). To build the dashboard locally, you'll need make and gcc 14.2 or higher. Simply run:
+Running the included makefile will build all files, run analysis and generate the dashboard (<index.html>). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
 
 ```sh
 make
