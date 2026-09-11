@@ -6,7 +6,7 @@
 
 After completing this project, students will be able:
 
-1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of various sorting algorithms
+1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of sorting algorithms
 2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
 3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices
 
@@ -14,9 +14,9 @@ After completing this project, students will be able:
 
 ## Task
 
-Each student merges their own sorting algorithms as C++ programs. This project then builds a web dashboard allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of raw execution time and the number of comparison operations used.
+Each student creates and merges their own sorting algorithm as a C++ program. A shared web dashboard is updated allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of wall time and the number of comparison operations used.
 
-Programs live in the `algorithms` directory. Each program reads from standard input until EOF is reached. The program should output the list correctly sorted following by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
+Each sorting algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the list correctly sorted followed by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
 
 When this project is hosted on Github, Github Actions will automatically build the dashboards and push them to Github Pages for review. Students can contribute and review one another's work using pull requests.
 
