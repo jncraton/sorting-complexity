@@ -33,8 +33,7 @@ make
 The following automated analysis is performed and displayed for each discovered C++ program in the algorithms directory:
 
 1. The program is compiled using `g++ -std=c++23`.
-2. The program is tested against random unsigned integer lists of the following sizes while storing the provided runtime and comparison count for each run:
-  - 1, 2, 4, 10, 100, 1000, 10000, 100000, 1000000
+2. The program is tested against random unsigned integer lists while storing the provided runtime and comparison count for each run.
 3. The test is re-run using presorted lists for separate comparison.
 4. The test is re-run using reverse-sorted lists for separate comparison.
 
