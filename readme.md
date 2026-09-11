@@ -1,0 +1,23 @@
+# Sorting Complexity
+
+## OCTOPUS
+
+This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about):
+
+> The OCTOPUS Project: Open Collaboration for Transformative Open Pedagogy to support Undergraduate Open Science Education
+>
+> OCTOPUS is fundamentally about improving undergraduate science education through the broad integration of the practices and possibilities of Open Science into the STEM curriculum, using Open Pedagogy as a primary lever. This open collaboration began with a group of 12 educators who created resources in alignment with our goals. We are excited to invite you to join our community - everyone interested is welcome! This can mean just exploring our resources, participating in discussions and events, or actively contributing your own open science and open pedagogy teaching resources to our collection. Becoming a member is free, and does not obligate you to anything, but you will receive monthly updates on what is happening in the OCTOPUS community.
+>
+> Although most scientists agree that transparency and openness in science would strengthen and further scientific knowledge, open science is still not the standard for how science is practiced today, especially in the US. Long-time arguments for making scientific practice more open are usually pitched to established research scientists. Transitioning to open science then has required untraining a large group of people indoctrinated and successful in the current competitive scientific world, which likely explains why Open Science has had little traction. Science education often mirrors scientific practice's competitive focus, where students who are not "good enough" get "weeded out". We make the case that improving science education and achieving a cultural shift towards universal open, equitable, and socially just scientific practice requires substantial transformation in our undergraduate science education systems.
+>
+> Our resources contextualize Open Science into a broader understanding of the open ecosystem and the connections between its various components, including open data, open access, open educational resources, open source, open infrastructure, citizen science, crowdfunding, open notebook, open labs, open evaluation and more.
+>
+> Our resources incorporate the basics of how and why to do open science, but are also designed to provide students with opportunities to deeply and critically examine the pitfalls and inequities that many open scientists may face, and to consider how to address those inequities.
+>
+> Our resources integrate other important structural aspects of improving undergraduate science education such as alternative grading approaches and innovative pedagogical strategies, especially Open Pedagogy.
+>
+> Our resources are openly licensed and can be easily downloaded and modified for use in a variety of contexts. As members of an open community, we highly encourage users to upload their new versions of remixed OCTOPUS materials so that others may also make use of these revised versions.
+
+## PALSave Open Pedagogy
+
+This work is support by a PALSave Open Pedagogy grant. This grant offers support and recognition for creating or redesigning a course assignment that embraces open pedagogy-an approach that empowers students and makes learning more impactful. Your work will not only benefit your current students but also provide a valuable resource for future educators and learners.
