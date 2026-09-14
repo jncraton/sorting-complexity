@@ -1,7 +1,6 @@
 #include "test.cc"
 
-template <typename T>
-void sort(std::vector<T>& arr) {
+template <typename T> void sort(std::vector<T> &arr) {
   bool swapped;
   for (int i = 0; i < arr.size() - 1; ++i) {
     swapped = false;

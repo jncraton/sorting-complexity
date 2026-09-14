@@ -16,19 +16,18 @@ public:
 
   int get_val() const { return val; }
 
-  auto operator<=>(const TrackedInt& other) const {
+  auto operator<=>(const TrackedInt &other) const {
     comparisons++;
     return val <=> other.val;
   }
 
-  bool operator==(const TrackedInt& other) const {
+  bool operator==(const TrackedInt &other) const {
     comparisons++;
     return val == other.val;
   }
 };
 
-template <typename T>
-extern void sort(std::vector<T>&);
+template <typename T> extern void sort(std::vector<T> &);
 
 int main() {
   std::vector<TrackedInt> arr;
