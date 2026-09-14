@@ -8,10 +8,6 @@ from plotly.subplots import make_subplots
 
 SIZES = [int(1.3**i) for i in range(40)]
 
-COLOR_MAP = {
-    "bubble": "#1f77b4",
-    "selection": "#ff7f0e"
-}
 
 def compile_algorithms():
     algo_dir = Path("algorithms")
@@ -98,8 +94,15 @@ def generate_dashboard(data):
     # Track added legend items to avoid duplicate legend entries when toggling together
     legend_groups_added = set()
 
+    # Standard qualitative color palette
+    colors = [
+        "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+        "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"
+    ]
+    algo_colors = {algo_name: colors[i % len(colors)] for i, algo_name in enumerate(data.keys())}
+
     for algo_name, algo_data in data.items():
-        color = COLOR_MAP.get(algo_name, "#2ca02c")
+        color = algo_colors[algo_name]
         for mode, row in modes:
             m_data = algo_data[mode]
             if not m_data["sizes"]:
