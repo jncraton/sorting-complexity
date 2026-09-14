@@ -4,20 +4,15 @@
 #include <algorithm>
 #include <iostream>
 
-using namespace std;
-
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    vector<int> arr;
+    std::vector<int> arr;
     int val;
-    while (cin >> val) {
+    while (std::cin >> val) {
         arr.push_back(val);
     }
 
     long long comparisons = 0;
-    auto start_time = chrono::high_resolution_clock::now();
+    auto start_time = std::chrono::high_resolution_clock::now();
 
     int n = arr.size();
     bool swapped;
@@ -26,15 +21,15 @@ int main() {
         for (int j = 0; j < n - i - 1; ++j) {
             comparisons++;
             if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j + 1]);
+                std::swap(arr[j], arr[j + 1]);
                 swapped = true;
             }
         }
         if (!swapped) break;
     }
 
-    auto end_time = chrono::high_resolution_clock::now();
-    chrono::duration<double> elapsed = end_time - start_time;
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end_time - start_time;
 
     for (int i = 0; i < n; ++i) {
         std::println("{}", arr[i]);
