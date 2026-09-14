@@ -27,7 +27,8 @@ public:
   }
 };
 
-extern void sort(std::vector<TrackedInt>&);
+template <typename T>
+extern void sort(std::vector<T>&);
 
 int main() {
   std::vector<TrackedInt> arr;
