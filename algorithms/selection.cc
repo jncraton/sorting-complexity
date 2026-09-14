@@ -1,6 +1,6 @@
 #include "test.cc"
 
-void sort(std::vector<int> &arr) {
+void sort(std::vector<TrackedInt> &arr) {
   for (int i = 0; i < arr.size() - 1; ++i) {
     int min_idx = i;
     for (int j = i + 1; j < arr.size(); ++j) {
