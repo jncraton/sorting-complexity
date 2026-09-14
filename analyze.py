@@ -6,7 +6,7 @@ from pathlib import Path
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-SIZES = [1, 2, 4, 8, 10, 50, 100, 500, 1000, 5000, 10000, 20000, 40000, 60000, 80000, 100000]
+SIZES = [int(1.3**i) for i in range(40)]
 
 COLOR_MAP = {
     "bubble": "#1f77b4",
