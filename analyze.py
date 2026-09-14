@@ -19,6 +19,9 @@ def compile_algorithms():
         return results
 
     for cpp_file in algo_dir.glob("*.cc"):
+        if str(cpp_file).endswith('test.cc'):
+            continue
+    
         name = cpp_file.stem
         bin_path = bin_dir / name
         print(f"Compiling {cpp_file}...", file=sys.stderr)
