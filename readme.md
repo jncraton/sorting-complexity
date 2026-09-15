@@ -14,11 +14,12 @@ After completing this project, students will be able to:
 
 ![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/500px-UNESCO-Open_science-pillars-en.png)
 
-[Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
 ## Task
 
 Each student creates and merges their own sorting algorithm as a C++ program. A shared web dashboard is updated to allow comparison and exploration of the included algorithms. The dashboard compares the programs in terms of both wall time and the number of comparison operations used.
+
+[Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
 Each sorting algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the correctly sorted list followed by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
 
