@@ -18,11 +18,11 @@ After completing this project, students will be able to:
 
 ## Task
 
-Each student creates and merges their own sorting algorithm as a C++ program. A shared web dashboard is updated allowing comparison and exploration of the included algorithms. The dashboard compares the time complexity of the programs both in terms of wall time and the number of comparison operations used.
+Each student creates and merges their own sorting algorithm as a C++ program. A shared web dashboard is updated to allow comparison and exploration of the included algorithms. The dashboard compares the programs in terms of both wall time and the number of comparison operations used.
 
-Each sorting algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the list correctly sorted followed by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
+Each sorting algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the correctly sorted list followed by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
 
-When this project is hosted on Github, Github Actions will automatically build the dashboards and push them to Github Pages for review. Students can contribute and review one another's work using pull requests.
+When this project is hosted on GitHub, GitHub Actions will automatically build the dashboards and push them to GitHub Pages for review. Students can contribute and review one another's work using pull requests.
 
 ## Building
 
@@ -41,8 +41,8 @@ The following automated analysis is performed and displayed for each discovered 
 3. The test is re-run using presorted lists for separate comparison.
 4. The test is re-run using reverse-sorted lists for separate comparison.
 
-A dashboard is generated to compare algorithm complexity for random, presorted, and reverse-sorted list. Separate graphs are provided for time and comparisons, for 6 total graphs.
+A dashboard is generated to compare algorithm complexity for random, presorted, and reverse-sorted lists. Separate graphs are provided for time and comparisons, for 6 total graphs.
 
 ## OCTOPUS and PALSave
 
-This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about) and support by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants).
+This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about) and supported by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants).
