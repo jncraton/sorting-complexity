@@ -1,10 +1,12 @@
-# Sorting Complexity
+# Sorting Through Complexity
+
+An introductory exploration of complexity theory through open science and open pedagogy.
 
 ![Bubble Sort](https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
 
 ## Learning Outcomes
 
-After completing this project, students will be able:
+After completing this project, students will be able to:
 
 1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of sorting algorithms
 2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
