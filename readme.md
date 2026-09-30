@@ -8,7 +8,7 @@ An introductory exploration of complexity theory through open science and open p
 
 After completing this project, students will be able to:
 
-1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of sorting algorithms
+1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of sorting algorithms and list operations
 2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
 3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices
 
@@ -17,11 +17,11 @@ After completing this project, students will be able to:
 
 ## Task
 
-Each student creates and merges their own sorting algorithm as a C++ program. A shared web dashboard is updated to allow comparison and exploration of the included algorithms. The dashboard compares the programs in terms of both wall time and the number of comparison operations used.
+Each student creates and merges their own algorithm as a C++ program. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
 
 [Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
-Each sorting algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the correctly sorted list followed by a count of comparisons used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
+Each algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the correctly processed list followed by a count of operations used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
 
 When this project is hosted on GitHub, GitHub Actions will automatically build the dashboards and push them to GitHub Pages for review. Students can contribute and review one another's work using pull requests.
 
@@ -38,11 +38,11 @@ make
 The following automated analysis is performed and displayed for each discovered C++ program in the algorithms directory:
 
 1. The program is compiled using `g++ -std=c++23`.
-2. The program is tested against random unsigned integer lists while storing the provided runtime and comparison count for each run.
+2. The program is tested against random unsigned integer lists while storing the provided runtime and operation count for each run.
 3. The test is re-run using presorted lists for separate comparison.
 4. The test is re-run using reverse-sorted lists for separate comparison.
 
-A dashboard is generated to compare algorithm complexity for random, presorted, and reverse-sorted lists. Separate graphs are provided for time and comparisons, for 6 total graphs.
+A dashboard is generated to compare algorithm complexity for random, presorted, and reverse-sorted lists. Separate graphs are provided for time and operations.
 
 ## OCTOPUS and PALSave
 
