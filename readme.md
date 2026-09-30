@@ -17,13 +17,11 @@ After completing this project, students will be able to:
 
 ## Task
 
-Each student creates and merges their own algorithm as a C++ program. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
+Each student or group creates and merges their own algorithm as a method implementation for a C++ class. These classes are loaded into a student-designed test harness that measures comparisons, swaps, and wall time for various list sizes. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
 
 [Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
-Each algorithm lives in the `algorithms` directory. Each program reads line-separated numbers from standard input until EOF is reached. The program should output the correctly processed list followed by a count of operations used along with the amount of time in seconds. An example bubble sort (bubble.cc) program is provided.
-
-When this project is hosted on GitHub, GitHub Actions will automatically build the dashboards and push them to GitHub Pages for review. Students can contribute and review one another's work using pull requests.
+Each algorithm lives in the `algorithms` directory. When this project is hosted on GitHub, GitHub Actions will automatically build the dashboards and push them to GitHub Pages for review. Students can contribute and review one another's work using pull requests.
 
 ## Building
 
