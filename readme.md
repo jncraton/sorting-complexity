@@ -45,3 +45,7 @@ A dashboard is generated to compare algorithm complexity for random, presorted, 
 ## OCTOPUS and PALSave
 
 This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about) and supported by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants).
+
+## Resources
+
+- [The Basic Reproducible Workflow Template](http://www.practicereproducibleresearch.org/core-chapters/3-basic.html)
