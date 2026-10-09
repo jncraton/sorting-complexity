@@ -1,7 +1,6 @@
 #include <chrono>
 #include <cstddef>
 #include <fstream>
-#include <iostream>
 #include <print>
 
 #include "list.hh"
@@ -54,20 +53,14 @@ void benchmark(
     cleanup(values, i);
   }
 
-  output << name << ',' << size << ',' << iterations << ','
-         << elapsed.count() / iterations << '\n';
+  std::println(output, "{},{},{},{}",
+             name, size, iterations, elapsed.count() / iterations);
 }
 
 int main()
 {
   std::ofstream output("bench.csv");
-  if (!output)
-  {
-    std::cerr << "Could not open bench.csv for writing\n";
-    return 1;
-  }
-
-  output << "operation,size,iterations,ns_per_operation\n";
+  std::println(output, "operation,size,iterations,ns_per_operation");
 
   const std::size_t sizes[] = {10, 100, 1000, 10000, 100000, 1000000};
   const auto noop = [](auto&, std::size_t) {};
@@ -132,5 +125,5 @@ int main()
       noop);
   }
 
-  std::println("Benchmark results written to bench.csv\n");
+  std::println("Benchmark results written to bench.csv");
 }
