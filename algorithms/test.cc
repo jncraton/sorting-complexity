@@ -66,11 +66,11 @@ int main() {
 
     benchmark(
         output, "at", size, iterations, values, noop,
-        [size](auto &l, std::size_t i) { (void)l.at(i % size); }, noop);
+        [size](auto &l, std::size_t i) { (void)l.at(size / 2); }, noop);
 
     benchmark(
         output, "operator[]", size, iterations, values, noop,
-        [size](auto &l, std::size_t i) { (void)l[i % size]; }, noop);
+        [size](auto &l, std::size_t i) { (void)l[size / 2]; }, noop);
 
     benchmark(
         output, "front", size, iterations, values, noop,
