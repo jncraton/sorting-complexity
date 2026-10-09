@@ -1,9 +1,11 @@
 #include <chrono>
 #include <cstddef>
+#include <cstdint>
 #include <fstream>
 #include <initializer_list>
 #include <memory>
 #include <print>
+#include <utility>
 #include <vector>
 
 #include "forward_list.hh"
@@ -33,10 +35,56 @@ public:
   }
 };
 
+enum class InputOrder { presorted, reverse_sorted, randomized };
+
+const char *input_order_name(InputOrder order) {
+  switch (order) {
+  case InputOrder::presorted:
+    return "presorted";
+  case InputOrder::reverse_sorted:
+    return "reverse_sorted";
+  case InputOrder::randomized:
+    return "randomized";
+  }
+
+  return "unknown";
+}
+
+std::vector<int> make_input_values(std::size_t size, InputOrder order,
+                                   std::size_t iteration) {
+  std::vector<int> values(size);
+
+  for (std::size_t i = 0; i < size; ++i) {
+    if (order == InputOrder::reverse_sorted) {
+      values[i] = static_cast<int>(size - 1 - i);
+    } else {
+      values[i] = static_cast<int>(i);
+    }
+  }
+
+  if (order == InputOrder::randomized) {
+    std::uint64_t state =
+        0x9e3779b97f4a7c15ULL ^ static_cast<std::uint64_t>(iteration + 1);
+
+    for (std::size_t i = size; i > 1; --i) {
+      state ^= state >> 12;
+      state ^= state << 25;
+      state ^= state >> 27;
+
+      const std::size_t j =
+          static_cast<std::size_t>((state * 0x2545f4914f6cdd1dULL) % i);
+      std::swap(values[i - 1], values[j]);
+    }
+  }
+
+  return values;
+}
+
 template <typename Container, typename Operation>
 void benchmark(std::ofstream &output, const char *container_name,
                const char *name, std::size_t size, std::size_t initial_size,
-               std::size_t iterations, Operation operation) {
+               std::size_t iterations, Operation operation,
+               InputOrder input_order = InputOrder::presorted) {
   std::vector<std::unique_ptr<Container>> containers;
   containers.reserve(iterations);
 
@@ -44,8 +92,9 @@ void benchmark(std::ofstream &output, const char *container_name,
     containers.emplace_back(
         std::make_unique<Container>(std::initializer_list<TrackedInt>{}));
 
-    for (std::size_t j = 0; j < initial_size; ++j) {
-      containers.back()->push_back(static_cast<int>(j));
+    const auto values = make_input_values(initial_size, input_order, i);
+    for (int value : values) {
+      containers.back()->push_back(value);
     }
   }
 
@@ -59,8 +108,48 @@ void benchmark(std::ofstream &output, const char *container_name,
     elapsed += end - start;
   }
 
-  std::println(output, "{},{},{},{},{}", container_name, name, size, iterations,
+  std::println(output, "{},{},{},{},{},{}", container_name, name,
+               input_order_name(input_order), size, iterations,
                elapsed.count() / iterations);
+}
+
+template <typename Container>
+void run_sort_benchmarks(std::ofstream &output, const char *container_name,
+                         std::size_t size, std::size_t iterations,
+                         InputOrder input_order) {
+  const std::size_t sort_iterations = iterations / 10;
+
+  benchmark<Container>(
+      output, container_name, "sort_bubble", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_bubble(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_insertion", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_insertion(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_selection", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_selection(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_merge", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_merge(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_quick", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_quick(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_heap", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_heap(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_shell", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_shell(); }, input_order);
+
+  benchmark<Container>(
+      output, container_name, "sort_tim", size, size, sort_iterations,
+      [](auto &l, std::size_t) { l.sort_tim(); }, input_order);
 }
 
 template <typename Container>
@@ -68,6 +157,11 @@ void run_benchmarks_for_container(std::ofstream &output,
                                   const char *container_name) {
   const std::size_t sizes[] = {10, 100, 1000, 10000};
   const std::size_t iterations = 10;
+  const InputOrder sort_orders[] = {
+      InputOrder::presorted,
+      InputOrder::reverse_sorted,
+      InputOrder::randomized,
+  };
 
   for (std::size_t size : sizes) {
     benchmark<Container>(
@@ -112,43 +206,17 @@ void run_benchmarks_for_container(std::ofstream &output,
     benchmark<Container>(output, container_name, "clear", size, size,
                          iterations, [](auto &l, std::size_t) { l.clear(); });
 
-    benchmark<Container>(output, container_name, "sort_bubble", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_bubble(); });
-
-    benchmark<Container>(output, container_name, "sort_insertion", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_insertion(); });
-
-    benchmark<Container>(output, container_name, "sort_selection", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_selection(); });
-
-    benchmark<Container>(output, container_name, "sort_merge", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_merge(); });
-
-    benchmark<Container>(output, container_name, "sort_quick", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_quick(); });
-
-    benchmark<Container>(output, container_name, "sort_heap", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_heap(); });
-
-    benchmark<Container>(output, container_name, "sort_shell", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_shell(); });
-
-    benchmark<Container>(output, container_name, "sort_tim", size, size,
-                         iterations / 10,
-                         [](auto &l, std::size_t) { l.sort_tim(); });
+    for (InputOrder order : sort_orders) {
+      run_sort_benchmarks<Container>(output, container_name, size, iterations,
+                                     order);
+    }
   }
 }
 
 int main() {
   std::ofstream output("bench.csv");
-  std::println(output, "container,operation,size,iterations,ns_per_operation");
+  std::println(output, "container,operation,input_order,size,iterations,"
+                       "ns_per_operation");
 
   run_benchmarks_for_container<list<TrackedInt>>(output, "list");
   run_benchmarks_for_container<forward_list<TrackedInt>>(output,
