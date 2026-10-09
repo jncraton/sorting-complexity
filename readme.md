@@ -10,7 +10,7 @@ After completing this project, students will be able to:
 
 1. Compare the [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity) of sorting algorithms and list operations
 2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
-3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices
+3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices and create [reproducible workflows](http://www.practicereproducibleresearch.org/core-chapters/3-basic.html)
 
 ![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/330px-UNESCO-Open_science-pillars-en.png)
 
@@ -44,7 +44,3 @@ The following automated analysis is performed and displayed for each container a
 ## OCTOPUS and PALSave
 
 This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about) and supported by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants).
-
-## Resources
-
-- [The Basic Reproducible Workflow Template](http://www.practicereproducibleresearch.org/core-chapters/3-basic.html)
