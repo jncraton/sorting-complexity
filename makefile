@@ -6,12 +6,12 @@ algorithms/%.o: algorithms/%.cc
 bench: algorithms/list.o algorithms/forward_list.o algorithms/vector.o algorithms/bench.o
 	g++ -std=c++23 -fno-tree-dce -fno-lto -O3 $^ -o $@
 
-bench.csv: bench
-	./bench
-
 test: algorithms/list.o algorithms/forward_list.o algorithms/vector.o algorithms/test.o
 	g++ -std=c++23 -fno-tree-dce -fno-lto -O3 $^ -o $@
 	./test
+
+bench.csv: bench
+	./bench
 
 index.html: bench.csv analyze.py
 	uv run python3 analyze.py
