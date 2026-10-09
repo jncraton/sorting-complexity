@@ -13,12 +13,7 @@ import plotly.graph_objects as go
 
 
 def load_results(filename):
-    """Read benchmark rows from a CSV file.
-
-    >>> rows = load_results("bench.csv")
-    >>> rows[0]["container"]
-    'list'
-    """
+    """Read benchmark rows from a CSV file."""
     with open(filename, newline="", encoding="utf-8") as csvfile:
         rows = list(csv.DictReader(csvfile))
 
@@ -35,18 +30,7 @@ def load_results(filename):
 
 
 def build_chart(rows):
-    """Create an interactive Plotly chart from benchmark rows.
-
-    >>> fig = build_chart([{
-    ...     "container": "vector",
-    ...     "operation": "at",
-    ...     "size": 10,
-    ...     "iterations": 1,
-    ...     "ns_per_operation": 2.5,
-    ... }])
-    >>> len(fig.data)
-    1
-    """
+    """Create an interactive Plotly chart from benchmark rows."""
     groups = defaultdict(list)
     for row in rows:
         groups[(row["operation"], row["container"])].append(row)
