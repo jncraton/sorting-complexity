@@ -1,13 +1,16 @@
+CXXFLAGS = -std=c++23 -O3 -fno-tree-dce -fno-lto
+OBJECTS = algorithms/list.o algorithms/forward_list.o algorithms/vector.o
+
 all: test index.html
 
 algorithms/%.o: algorithms/%.cc
-	g++ -std=c++23 -O3 -fno-tree-dce -fno-lto -c $< -o $@
+	g++ $(CXXFLAGS) -c $< -o $@
 
-bench: algorithms/list.o algorithms/forward_list.o algorithms/vector.o algorithms/bench.o
-	g++ -std=c++23 -fno-tree-dce -fno-lto -O3 $^ -o $@
+bench: $(OBJECTS) algorithms/bench.o
+	g++ $(CXXFLAGS) $^ -o $@
 
-test: algorithms/list.o algorithms/forward_list.o algorithms/vector.o algorithms/test.o
-	g++ -std=c++23 -fno-tree-dce -fno-lto -O3 $^ -o $@
+test: $(OBJECTS) algorithms/test.o
+	g++ $(CXXFLAGS) $^ -o $@
 	./test
 
 bench.csv: bench
