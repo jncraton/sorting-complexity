@@ -4,6 +4,8 @@
 #include <print>
 #include <vector>
 
+#include "list.hh"
+
 class TrackedInt {
   int val;
   static inline long long comparisons = 0;
@@ -27,26 +29,19 @@ public:
   }
 };
 
-template <typename T> extern void sort(std::vector<T> &);
-
 int main() {
-  std::vector<TrackedInt> arr;
-  int val;
-  while (std::cin >> val) {
-    arr.push_back(TrackedInt(val));
-  }
+  list<TrackedInt> l{10, 20, 30};
 
   TrackedInt::reset_comparisons();
   auto start_time = std::chrono::high_resolution_clock::now();
 
-  sort(arr);
+  for (int i = 0; i < 1000000; i++) {
+    l.push_front(i);
+  }
 
   auto end_time = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> elapsed = end_time - start_time;
 
-  for (int i = 0; i < arr.size(); ++i) {
-    std::println("{}", arr[i].get_val());
-  }
   std::println("");
   std::println("Comparisons: {}", TrackedInt::get_comparisons());
   std::println("Time: {} seconds", elapsed.count());
