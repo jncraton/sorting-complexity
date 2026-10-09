@@ -5,10 +5,11 @@
 
 #include "trackedint.hh"
 
-template <typename T>
-void vector<T>::reallocate(std::size_t new_cap) {
-  if (new_cap < count) new_cap = count;
-  if (new_cap == 0) new_cap = 1;
+template <typename T> void vector<T>::reallocate(std::size_t new_cap) {
+  if (new_cap < count)
+    new_cap = count;
+  if (new_cap == 0)
+    new_cap = 1;
   T *new_data = new T[new_cap];
   for (std::size_t i = 0; i < count; ++i) {
     new_data[i] = std::move(data_ptr[i]);
@@ -22,39 +23,35 @@ template <typename T>
 vector<T>::vector() : data_ptr(nullptr), count(0), cap(0) {}
 
 template <typename T>
-vector<T>::vector(std::initializer_list<T> values) : data_ptr(nullptr), count(0), cap(0) {
+vector<T>::vector(std::initializer_list<T> values)
+    : data_ptr(nullptr), count(0), cap(0) {
   reallocate(values.size());
   for (const T &value : values) {
     data_ptr[count++] = value;
   }
 }
 
-template <typename T>
-vector<T>::~vector() { delete[] data_ptr; }
+template <typename T> vector<T>::~vector() { delete[] data_ptr; }
 
-template <typename T>
-void vector<T>::push_back(const T &value) {
+template <typename T> void vector<T>::push_back(const T &value) {
   if (count >= cap) {
     reallocate(cap == 0 ? 1 : cap * 2);
   }
   data_ptr[count++] = value;
 }
 
-template <typename T>
-void vector<T>::push_front(const T &value) {
+template <typename T> void vector<T>::push_front(const T &value) {
   insert(0, value);
 }
 
-template <typename T>
-void vector<T>::pop_back() {
+template <typename T> void vector<T>::pop_back() {
   if (count == 0) {
     throw std::out_of_range("pop_back on empty vector");
   }
   --count;
 }
 
-template <typename T>
-void vector<T>::pop_front() {
+template <typename T> void vector<T>::pop_front() {
   if (count == 0) {
     throw std::out_of_range("pop_front on empty vector");
   }
@@ -79,71 +76,63 @@ void vector<T>::insert(std::size_t index, const T &value) {
   ++count;
 }
 
-template <typename T>
-void vector<T>::clear() {
-  count = 0;
-}
+template <typename T> void vector<T>::clear() { count = 0; }
 
-template <typename T>
-T &vector<T>::at(std::size_t index) {
+template <typename T> T &vector<T>::at(std::size_t index) {
   if (index >= count) {
     throw std::out_of_range("vector index out of range");
   }
   return data_ptr[index];
 }
 
-template <typename T>
-const T &vector<T>::at(std::size_t index) const {
+template <typename T> const T &vector<T>::at(std::size_t index) const {
   if (index >= count) {
     throw std::out_of_range("vector index out of range");
   }
   return data_ptr[index];
 }
 
-template <typename T>
-T &vector<T>::operator[](std::size_t index) { return data_ptr[index]; }
+template <typename T> T &vector<T>::operator[](std::size_t index) {
+  return data_ptr[index];
+}
 
-template <typename T>
-const T &vector<T>::operator[](std::size_t index) const { return data_ptr[index]; }
+template <typename T> const T &vector<T>::operator[](std::size_t index) const {
+  return data_ptr[index];
+}
 
-template <typename T>
-T &vector<T>::front() {
+template <typename T> T &vector<T>::front() {
   if (count == 0) {
     throw std::out_of_range("front on empty vector");
   }
   return data_ptr[0];
 }
 
-template <typename T>
-const T &vector<T>::front() const {
+template <typename T> const T &vector<T>::front() const {
   if (count == 0) {
     throw std::out_of_range("front on empty vector");
   }
   return data_ptr[0];
 }
 
-template <typename T>
-T &vector<T>::back() {
+template <typename T> T &vector<T>::back() {
   if (count == 0) {
     throw std::out_of_range("back on empty vector");
   }
   return data_ptr[count - 1];
 }
 
-template <typename T>
-const T &vector<T>::back() const {
+template <typename T> const T &vector<T>::back() const {
   if (count == 0) {
     throw std::out_of_range("back on empty vector");
   }
   return data_ptr[count - 1];
 }
 
-template <typename T>
-std::size_t vector<T>::size() const { return count; }
+template <typename T> std::size_t vector<T>::size() const { return count; }
 
-template <typename T>
-void vector<T>::sort_bubble() {
-  if (count < 2) return;
+template <typename T> void vector<T>::sort_bubble() {
+  if (count < 2)
+    return;
   for (std::size_t i = 0; i < count - 1; ++i) {
     for (std::size_t j = 0; j < count - i - 1; ++j) {
       if (data_ptr[j + 1] < data_ptr[j]) {
@@ -155,9 +144,9 @@ void vector<T>::sort_bubble() {
   }
 }
 
-template <typename T>
-void vector<T>::sort_insertion() {
-  if (count < 2) return;
+template <typename T> void vector<T>::sort_insertion() {
+  if (count < 2)
+    return;
   for (std::size_t i = 1; i < count; ++i) {
     T key = std::move(data_ptr[i]);
     long long j = static_cast<long long>(i) - 1;
@@ -169,9 +158,9 @@ void vector<T>::sort_insertion() {
   }
 }
 
-template <typename T>
-void vector<T>::sort_selection() {
-  if (count < 2) return;
+template <typename T> void vector<T>::sort_selection() {
+  if (count < 2)
+    return;
   for (std::size_t i = 0; i < count - 1; ++i) {
     std::size_t min_idx = i;
     for (std::size_t j = i + 1; j < count; ++j) {

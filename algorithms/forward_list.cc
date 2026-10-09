@@ -12,17 +12,16 @@ template <typename T>
 forward_list<T>::forward_list() : head(nullptr), count(0) {}
 
 template <typename T>
-forward_list<T>::forward_list(std::initializer_list<T> values) : head(nullptr), count(0) {
+forward_list<T>::forward_list(std::initializer_list<T> values)
+    : head(nullptr), count(0) {
   for (const T &value : values) {
     push_back(value);
   }
 }
 
-template <typename T>
-forward_list<T>::~forward_list() { clear(); }
+template <typename T> forward_list<T>::~forward_list() { clear(); }
 
-template <typename T>
-void forward_list<T>::push_back(const T &value) {
+template <typename T> void forward_list<T>::push_back(const T &value) {
   node *added = new node(value, nullptr);
   if (!head) {
     head = added;
@@ -36,15 +35,13 @@ void forward_list<T>::push_back(const T &value) {
   ++count;
 }
 
-template <typename T>
-void forward_list<T>::push_front(const T &value) {
+template <typename T> void forward_list<T>::push_front(const T &value) {
   node *added = new node(value, head);
   head = added;
   ++count;
 }
 
-template <typename T>
-void forward_list<T>::pop_back() {
+template <typename T> void forward_list<T>::pop_back() {
   if (!head) {
     throw std::out_of_range("pop_back on empty forward_list");
   }
@@ -62,8 +59,7 @@ void forward_list<T>::pop_back() {
   --count;
 }
 
-template <typename T>
-void forward_list<T>::pop_front() {
+template <typename T> void forward_list<T>::pop_front() {
   if (!head) {
     throw std::out_of_range("pop_front on empty forward_list");
   }
@@ -91,8 +87,7 @@ void forward_list<T>::insert(std::size_t index, const T &value) {
   ++count;
 }
 
-template <typename T>
-void forward_list<T>::clear() {
+template <typename T> void forward_list<T>::clear() {
   while (head) {
     node *removed = head;
     head = head->next;
@@ -101,8 +96,7 @@ void forward_list<T>::clear() {
   count = 0;
 }
 
-template <typename T>
-T &forward_list<T>::at(std::size_t index) {
+template <typename T> T &forward_list<T>::at(std::size_t index) {
   if (index >= count) {
     throw std::out_of_range("forward_list index out of range");
   }
@@ -113,8 +107,7 @@ T &forward_list<T>::at(std::size_t index) {
   return current->value;
 }
 
-template <typename T>
-const T &forward_list<T>::at(std::size_t index) const {
+template <typename T> const T &forward_list<T>::at(std::size_t index) const {
   if (index >= count) {
     throw std::out_of_range("forward_list index out of range");
   }
@@ -125,30 +118,30 @@ const T &forward_list<T>::at(std::size_t index) const {
   return current->value;
 }
 
-template <typename T>
-T &forward_list<T>::operator[](std::size_t index) { return at(index); }
+template <typename T> T &forward_list<T>::operator[](std::size_t index) {
+  return at(index);
+}
 
 template <typename T>
-const T &forward_list<T>::operator[](std::size_t index) const { return at(index); }
+const T &forward_list<T>::operator[](std::size_t index) const {
+  return at(index);
+}
 
-template <typename T>
-T &forward_list<T>::front() {
+template <typename T> T &forward_list<T>::front() {
   if (!head) {
     throw std::out_of_range("front on empty forward_list");
   }
   return head->value;
 }
 
-template <typename T>
-const T &forward_list<T>::front() const {
+template <typename T> const T &forward_list<T>::front() const {
   if (!head) {
     throw std::out_of_range("front on empty forward_list");
   }
   return head->value;
 }
 
-template <typename T>
-T &forward_list<T>::back() {
+template <typename T> T &forward_list<T>::back() {
   if (!head) {
     throw std::out_of_range("back on empty forward_list");
   }
@@ -159,8 +152,7 @@ T &forward_list<T>::back() {
   return current->value;
 }
 
-template <typename T>
-const T &forward_list<T>::back() const {
+template <typename T> const T &forward_list<T>::back() const {
   if (!head) {
     throw std::out_of_range("back on empty forward_list");
   }
@@ -171,12 +163,13 @@ const T &forward_list<T>::back() const {
   return current->value;
 }
 
-template <typename T>
-std::size_t forward_list<T>::size() const { return count; }
+template <typename T> std::size_t forward_list<T>::size() const {
+  return count;
+}
 
-template <typename T>
-void forward_list<T>::sort_bubble() {
-  if (count < 2) return;
+template <typename T> void forward_list<T>::sort_bubble() {
+  if (count < 2)
+    return;
   bool swapped;
   do {
     swapped = false;
@@ -193,9 +186,9 @@ void forward_list<T>::sort_bubble() {
   } while (swapped);
 }
 
-template <typename T>
-void forward_list<T>::sort_insertion() {
-  if (count < 2) return;
+template <typename T> void forward_list<T>::sort_insertion() {
+  if (count < 2)
+    return;
   node *sorted = nullptr;
   node *current = head;
   while (current) {
@@ -216,9 +209,9 @@ void forward_list<T>::sort_insertion() {
   head = sorted;
 }
 
-template <typename T>
-void forward_list<T>::sort_selection() {
-  if (count < 2) return;
+template <typename T> void forward_list<T>::sort_selection() {
+  if (count < 2)
+    return;
   for (node *i = head; i && i->next; i = i->next) {
     node *min_node = i;
     for (node *j = i->next; j; j = j->next) {

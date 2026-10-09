@@ -1,14 +1,15 @@
 #include "forward_list.hh"
 #include "list.hh"
-#include "vector.hh"
 #include "trackedint.hh"
+#include "vector.hh"
 #include <cassert>
 #include <iostream>
 #include <stdexcept>
 
 template <typename Container>
 void run_tests_for(const std::string &container_name) {
-  std::cout << "=== Starting tests for " << container_name << " ===" << std::endl;
+  std::cout << "=== Starting tests for " << container_name
+            << " ===" << std::endl;
 
   // initializer_list & size
   {
@@ -221,7 +222,8 @@ void run_tests_for(const std::string &container_name) {
     assert(exception_thrown);
   }
 
-  std::cout << "=== All tests passed for " << container_name << " ===" << std::endl;
+  std::cout << "=== All tests passed for " << container_name
+            << " ===" << std::endl;
 }
 
 int main() {
@@ -229,6 +231,7 @@ int main() {
   run_tests_for<list<int>>("list");
   run_tests_for<forward_list<int>>("forward_list");
   run_tests_for<vector<int>>("vector");
-  std::cout << "=== All Tests Passed Successfully Across All Containers! ===" << std::endl;
+  std::cout << "=== All Tests Passed Successfully Across All Containers! ==="
+            << std::endl;
   return 0;
 }
