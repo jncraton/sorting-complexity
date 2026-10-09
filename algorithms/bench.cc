@@ -6,9 +6,9 @@
 #include <print>
 #include <vector>
 
-#include "forward_list.cc"
+#include "forward_list.hh"
 #include "list.hh"
-#include "vector.cc"
+#include "vector.hh"
 
 class TrackedInt {
   int val;
