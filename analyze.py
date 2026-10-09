@@ -114,11 +114,11 @@ def main():
     rows = load_results("bench.csv")
     fig = build_chart(rows)
     fig.write_html(
-        "benchmark.html",
+        "index.html",
         full_html=True,
         include_plotlyjs=True,
     )
-    print(f"Wrote {Path('benchmark.html').resolve()}")
+    print(f"Wrote {Path('index.html').resolve()}")
 
 
 if __name__ == "__main__":
