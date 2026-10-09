@@ -26,6 +26,7 @@ handout:
 
 format:
 	clang-format -i src/*.cc src/*.hh
+	uv run black *.py
 
 clean:
 	rm -rf bin index.html uv.lock venv .venv src/*.o *.csv test bench
