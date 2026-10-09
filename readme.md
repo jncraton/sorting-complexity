@@ -17,15 +17,15 @@ After completing this project, students will be able to:
 
 ## Task
 
-Each student or group creates and merges their own algorithm as a method implementation for a C++ class. These classes are loaded into a student-designed test harness that measures comparisons, swaps, and wall time for various list sizes. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
+Each student or group implements sorting algorithms as methods within C++ container classes (`list`, `forward_list`, and `vector`). These containers are used in a test harness that measures wall time and the number of comparisons performed for various input sizes. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
 
 [Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
-Each algorithm lives in the `algorithms` directory. When this project is hosted on GitHub, GitHub Actions will automatically build the dashboards and push them to GitHub Pages for review. Students can contribute and review one another's work using pull requests.
+Students can contribute and review one another's work using pull requests. When this project is hosted on GitHub, GitHub Actions will automatically build the dashboard and push it to GitHub Pages for review.
 
 ## Building
 
-Running the included `makefile` will build all files, run analysis and generate the dashboard (<index.html>). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
+Running the included `makefile` will build all files, run analysis and generate the dashboard (`index.html`). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
 
 ```sh
 make
@@ -33,14 +33,13 @@ make
 
 ## Analysis
 
-The following automated analysis is performed and displayed for each discovered C++ program in the algorithms directory:
+The following automated analysis is performed and displayed for each container and operation:
 
-1. The program is compiled using `g++ -std=c++23`.
-2. The program is tested against random unsigned integer lists while storing the provided runtime and operation count for each run.
-3. The test is re-run using presorted lists for separate comparison.
-4. The test is re-run using reverse-sorted lists for separate comparison.
-
-A dashboard is generated to compare algorithm complexity for random, presorted, and reverse-sorted lists. Separate graphs are provided for time and operations.
+1. The containers are compiled using `g++ -std=c++23`.
+2. The `bench` program measures the time taken for various operations (e.g., `push_back`, `insert`, `sort_quick`) across different input sizes.
+3. A `TrackedInt` class is used to count the number of comparisons performed during sorting.
+4. The results are saved to `bench.csv`.
+5. `analyze.py` processes the CSV to generate an interactive Plotly dashboard (`index.html`) comparing performance across containers and algorithms.
 
 ## OCTOPUS and PALSave
 
