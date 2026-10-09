@@ -19,6 +19,11 @@ bench.csv: bench
 index.html: bench.csv analyze.py
 	uv run python3 analyze.py
 
+handout:
+	python3 handout.py src/vector.cc src/vector.cc
+	python3 handout.py src/forward_list.cc src/forward_list.cc
+	python3 handout.py src/list.cc src/list.cc
+
 format:
 	clang-format -i src/*.cc src/*.hh
 
