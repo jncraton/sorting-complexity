@@ -11,4 +11,4 @@ format:
 	clang-format -i *.cc *.hh
 
 clean:
-	rm -rf *.o *.csv
+	rm -rf *.o *.csv test bench
