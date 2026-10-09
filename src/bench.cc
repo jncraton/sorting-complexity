@@ -99,18 +99,26 @@ void benchmark(std::ofstream &output, const char *container_name,
   }
 
   std::chrono::duration<double, std::nano> elapsed{};
+  long long total_comparisons = 0;
 
   for (std::size_t i = 0; i < iterations; ++i) {
+    TrackedInt::reset_comparisons();
+
     auto start = std::chrono::steady_clock::now();
     operation(*containers[i], i);
     auto end = std::chrono::steady_clock::now();
 
     elapsed += end - start;
+    total_comparisons += TrackedInt::get_comparisons();
   }
 
-  std::println(output, "{},{},{},{},{},{}", container_name, name,
+  const double ns_per_operation = elapsed.count() / iterations;
+  const double comparisons_per_operation =
+      static_cast<double>(total_comparisons) / iterations;
+
+  std::println(output, "{},{},{},{},{},{},{}", container_name, name,
                input_order_name(input_order), size, iterations,
-               elapsed.count() / iterations);
+               ns_per_operation, comparisons_per_operation);
 }
 
 template <typename Container>
@@ -216,7 +224,7 @@ void run_benchmarks_for_container(std::ofstream &output,
 int main() {
   std::ofstream output("bench.csv");
   std::println(output, "container,operation,input_order,size,iterations,"
-                       "ns_per_operation");
+                       "ns_per_operation,comparisons_per_operation");
 
   run_benchmarks_for_container<list<TrackedInt>>(output, "list");
   run_benchmarks_for_container<forward_list<TrackedInt>>(output,
