@@ -12,7 +12,7 @@ After completing this project, students will be able to:
 2. Collaborate on software projects using [version control systems](https://en.wikipedia.org/wiki/Version_control)
 3. Follow [open science](https://en.wikipedia.org/wiki/Open_science) practices
 
-![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/500px-UNESCO-Open_science-pillars-en.png)
+![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/330px-UNESCO-Open_science-pillars-en.png)
 
 
 ## Task
