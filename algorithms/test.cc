@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <fstream>
 #include <iostream>
+#include <print>
 
 #include "list.hh"
 
@@ -131,5 +132,5 @@ int main()
       noop);
   }
 
-  std::cout << "Benchmark results written to bench.csv\n";
+  std::println("Benchmark results written to bench.csv\n");
 }
