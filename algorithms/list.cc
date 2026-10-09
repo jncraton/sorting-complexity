@@ -205,4 +205,44 @@ std::size_t list<T>::size() const {
   return count;
 }
 
+template <typename T>
+void list<T>::sort_bubble() {}
+
+template <typename T>
+void list<T>::sort_insertion() {}
+
+template <typename T>
+void list<T>::sort_selection() {
+  if (count <= 1) return;
+
+  for (node *i = head; i && i->next; i = i->next) {
+    node *min_node = i;
+    for (node *j = i->next; j; j = j->next) {
+      if (j->value < min_node->value) {
+        min_node = j;
+      }
+    }
+    if (min_node != i) {
+      T temp = i->value;
+      i->value = min_node->value;
+      min_node->value = temp;
+    }
+  }
+}
+
+template <typename T>
+void list<T>::sort_merge() {}
+
+template <typename T>
+void list<T>::sort_quick() {}
+
+template <typename T>
+void list<T>::sort_heap() {}
+
+template <typename T>
+void list<T>::sort_shell() {}
+
+template <typename T>
+void list<T>::sort_tim() {}
+
 template class list<TrackedInt>;

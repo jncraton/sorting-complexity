@@ -42,4 +42,13 @@ public:
   T &back();
   const T &back() const;
   std::size_t size() const;
+
+  void sort_bubble();
+  void sort_insertion();
+  void sort_selection();
+  void sort_merge();
+  void sort_quick();
+  void sort_heap();
+  void sort_shell();
+  void sort_tim();
 };
