@@ -64,11 +64,11 @@ int main()
 
   output << "operation,size,iterations,ns_per_operation\n";
 
-  const std::size_t sizes[] = {10, 100, 1000, 10000};
+  const std::size_t sizes[] = {10, 100, 1000, 10000, 100000, 1000000};
 
   for (std::size_t size : sizes)
   {
-    const std::size_t iterations = 10000;
+    const std::size_t iterations = 100;
     list<TrackedInt> values{};
 
     for (std::size_t i = 0; i < size; ++i)
