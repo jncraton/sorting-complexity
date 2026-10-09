@@ -1,4 +1,4 @@
-all: bench test
+all: test bench
 
 %.o: %.cc
 	g++ -std=c++23 -O3 -fno-tree-dce -fno-lto -c $< -o $@
