@@ -39,8 +39,8 @@ void benchmark(std::ofstream &output, const char *name, std::size_t size,
   lists.reserve(iterations);
 
   for (std::size_t i = 0; i < iterations; ++i) {
-    lists.emplace_back(
-        std::make_unique<list<TrackedInt>>(std::initializer_list<TrackedInt>{}));
+    lists.emplace_back(std::make_unique<list<TrackedInt>>(
+        std::initializer_list<TrackedInt>{}));
 
     for (std::size_t j = 0; j < initial_size; ++j) {
       lists.back()->push_back(static_cast<int>(j));
@@ -85,17 +85,14 @@ int main() {
               [](auto &l, std::size_t) { (void)l.size(); });
 
     benchmark(output, "push_back", size, size, iterations,
-              [](auto &l, std::size_t i) {
-                l.push_back(static_cast<int>(i));
-              });
+              [](auto &l, std::size_t i) { l.push_back(static_cast<int>(i)); });
 
     benchmark(output, "pop_back", size, size + 1, iterations,
               [](auto &l, std::size_t) { l.pop_back(); });
 
-    benchmark(output, "push_front", size, size, iterations,
-              [](auto &l, std::size_t i) {
-                l.push_front(static_cast<int>(i));
-              });
+    benchmark(
+        output, "push_front", size, size, iterations,
+        [](auto &l, std::size_t i) { l.push_front(static_cast<int>(i)); });
 
     benchmark(output, "pop_front", size, size + 1, iterations,
               [](auto &l, std::size_t) { l.pop_front(); });
@@ -108,28 +105,28 @@ int main() {
     benchmark(output, "clear", size, size, iterations,
               [](auto &l, std::size_t) { l.clear(); });
 
-    benchmark(output, "sort_bubble", size, size, iterations/10,
+    benchmark(output, "sort_bubble", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_bubble(); });
 
-    benchmark(output, "sort_insertion", size, size, iterations/10,
+    benchmark(output, "sort_insertion", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_insertion(); });
 
-    benchmark(output, "sort_selection", size, size, iterations/10,
+    benchmark(output, "sort_selection", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_selection(); });
 
-    benchmark(output, "sort_merge", size, size, iterations/10,
+    benchmark(output, "sort_merge", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_merge(); });
 
-    benchmark(output, "sort_quick", size, size, iterations/10,
+    benchmark(output, "sort_quick", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_quick(); });
 
-    benchmark(output, "sort_heap", size, size, iterations/10,
+    benchmark(output, "sort_heap", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_heap(); });
 
-    benchmark(output, "sort_shell", size, size, iterations/10,
+    benchmark(output, "sort_shell", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_shell(); });
 
-    benchmark(output, "sort_tim", size, size, iterations/10,
+    benchmark(output, "sort_tim", size, size, iterations / 10,
               [](auto &l, std::size_t) { l.sort_tim(); });
   }
 

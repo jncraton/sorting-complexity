@@ -3,8 +3,7 @@
 #include <cstddef>
 #include <initializer_list>
 
-template <typename T>
-class list {
+template <typename T> class list {
   struct node {
     T value;
     node *previous;
@@ -18,6 +17,7 @@ class list {
   std::size_t count;
 
 public:
+  list();
   list(std::initializer_list<T> values);
   ~list();
 
