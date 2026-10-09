@@ -66,7 +66,7 @@ int main() {
   std::println(output, "operation,size,iterations,ns_per_operation");
 
   const std::size_t sizes[] = {10, 100, 1000, 10000};
-  const std::size_t iterations = 10000;
+  const std::size_t iterations = 1000;
 
   for (std::size_t size : sizes) {
     benchmark(output, "at", size, size, iterations,
@@ -108,28 +108,28 @@ int main() {
     benchmark(output, "clear", size, size, iterations,
               [](auto &l, std::size_t) { l.clear(); });
 
-    benchmark(output, "sort_bubble", size, size, iterations,
+    benchmark(output, "sort_bubble", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_bubble(); });
 
-    benchmark(output, "sort_insertion", size, size, iterations,
+    benchmark(output, "sort_insertion", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_insertion(); });
 
-    benchmark(output, "sort_selection", size, size, iterations,
+    benchmark(output, "sort_selection", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_selection(); });
 
-    benchmark(output, "sort_merge", size, size, iterations,
+    benchmark(output, "sort_merge", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_merge(); });
 
-    benchmark(output, "sort_quick", size, size, iterations,
+    benchmark(output, "sort_quick", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_quick(); });
 
-    benchmark(output, "sort_heap", size, size, iterations,
+    benchmark(output, "sort_heap", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_heap(); });
 
-    benchmark(output, "sort_shell", size, size, iterations,
+    benchmark(output, "sort_shell", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_shell(); });
 
-    benchmark(output, "sort_tim", size, size, iterations,
+    benchmark(output, "sort_tim", size, size, iterations/10,
               [](auto &l, std::size_t) { l.sort_tim(); });
   }
 
