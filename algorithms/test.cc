@@ -1,7 +1,6 @@
 #include <chrono>
 #include <cstddef>
 #include <fstream>
-#include <initializer_list>
 #include <iostream>
 
 #include "list.hh"
@@ -29,28 +28,33 @@ public:
   }
 };
 
-template <typename Operation>
+template <typename Setup, typename Operation, typename Cleanup>
 void benchmark(
   std::ofstream& output,
   const char* name,
   std::size_t size,
   std::size_t iterations,
   list<TrackedInt>& values,
-  Operation operation)
+  Setup setup,
+  Operation operation,
+  Cleanup cleanup)
 {
-  auto start = std::chrono::steady_clock::now();
+  std::chrono::duration<double, std::nano> elapsed{};
 
   for (std::size_t i = 0; i < iterations; ++i)
   {
+    setup(values, i);
+
+    auto start = std::chrono::steady_clock::now();
     operation(values, i);
+    auto end = std::chrono::steady_clock::now();
+
+    elapsed += end - start;
+    cleanup(values, i);
   }
 
-  auto end = std::chrono::steady_clock::now();
-  auto elapsed =
-    std::chrono::duration<double, std::nano>(end - start).count();
-
   output << name << ',' << size << ',' << iterations << ','
-         << elapsed / iterations << '\n';
+         << elapsed.count() / iterations << '\n';
 }
 
 int main()
@@ -65,6 +69,7 @@ int main()
   output << "operation,size,iterations,ns_per_operation\n";
 
   const std::size_t sizes[] = {10, 100, 1000, 10000, 100000, 1000000};
+  const auto noop = [](auto&, std::size_t) {};
 
   for (std::size_t size : sizes)
   {
@@ -76,59 +81,54 @@ int main()
       values.push_back(static_cast<int>(i));
     }
 
-    benchmark(output, "at", size, iterations, values,
-      [size](auto& l, std::size_t i) { (void)l.at(i % size); });
+    benchmark(output, "at", size, iterations, values, noop,
+      [size](auto& l, std::size_t i) { (void)l.at(i % size); }, noop);
 
-    benchmark(output, "operator[]", size, iterations, values,
-      [size](auto& l, std::size_t i) { (void)l[i % size]; });
+    benchmark(output, "operator[]", size, iterations, values, noop,
+      [size](auto& l, std::size_t i) { (void)l[i % size]; }, noop);
 
-    benchmark(output, "front", size, iterations, values,
-      [](auto& l, std::size_t) { (void)l.front(); });
+    benchmark(output, "front", size, iterations, values, noop,
+      [](auto& l, std::size_t) { (void)l.front(); }, noop);
 
-    benchmark(output, "back", size, iterations, values,
-      [](auto& l, std::size_t) { (void)l.back(); });
+    benchmark(output, "back", size, iterations, values, noop,
+      [](auto& l, std::size_t) { (void)l.back(); }, noop);
 
-    benchmark(output, "size", size, iterations, values,
-      [](auto& l, std::size_t) { (void)l.size(); });
+    benchmark(output, "size", size, iterations, values, noop,
+      [](auto& l, std::size_t) { (void)l.size(); }, noop);
 
-    benchmark(output, "push_back", size, iterations, values,
-      [](auto& l, std::size_t i) {
-        l.push_back(static_cast<int>(i));
-        l.pop_back();
-      });
+    benchmark(output, "push_back", size, iterations, values, noop,
+      [](auto& l, std::size_t i) { l.push_back(static_cast<int>(i)); },
+      [](auto& l, std::size_t) { l.pop_back(); });
 
     benchmark(output, "pop_back", size, iterations, values,
-      [](auto& l, std::size_t i) {
-        l.pop_back();
-        l.push_back(static_cast<int>(i));
-      });
+      [](auto& l, std::size_t i) { l.push_back(static_cast<int>(i)); },
+      [](auto& l, std::size_t) { l.pop_back(); }, noop);
 
-    benchmark(output, "push_front", size, iterations, values,
-      [](auto& l, std::size_t i) {
-        l.push_front(static_cast<int>(i));
-        l.pop_front();
-      });
+    benchmark(output, "push_front", size, iterations, values, noop,
+      [](auto& l, std::size_t i) { l.push_front(static_cast<int>(i)); },
+      [](auto& l, std::size_t) { l.pop_front(); });
 
     benchmark(output, "pop_front", size, iterations, values,
-      [](auto& l, std::size_t i) {
-        l.pop_front();
-        l.push_front(static_cast<int>(i));
-      });
+      [](auto& l, std::size_t i) { l.push_front(static_cast<int>(i)); },
+      [](auto& l, std::size_t) { l.pop_front(); }, noop);
 
-    benchmark(output, "insert", size, iterations, values,
+    benchmark(output, "insert", size, iterations, values, noop,
       [size](auto& l, std::size_t i) {
         l.insert(size / 2, static_cast<int>(i));
-        l.pop_back();
-      });
+      },
+      [](auto& l, std::size_t) { l.pop_back(); });
 
-    benchmark(output, "clear_and_refill", size, iterations, values,
+    values.clear();
+
+    benchmark(output, "clear", size, iterations, values,
       [size](auto& l, std::size_t) {
-        l.clear();
         for (std::size_t i = 0; i < size; ++i)
         {
           l.push_back(static_cast<int>(i));
         }
-      });
+      },
+      [](auto& l, std::size_t) { l.clear(); },
+      noop);
   }
 
   std::cout << "Benchmark results written to bench.csv\n";
