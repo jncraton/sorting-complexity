@@ -76,8 +76,7 @@ def convert(text):
         elif char == "{":
             prefix = text[boundary:index]
             is_method = re.search(
-                r"(?:\b[A-Za-z_]\w*\s*(?:<[^{};]*>)?\s*::\s*)+"
-                r"~?[A-Za-z_]\w*\s*\(",
+                r"(?:\b[A-Za-z_]\w*\s*(?:<[^{};]*>)?\s*::\s*)+" r"~?[A-Za-z_]\w*\s*\(",
                 prefix,
             )
             ends_like_signature = re.search(

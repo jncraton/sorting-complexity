@@ -48,14 +48,10 @@ def build_chart(rows):
     """Create an interactive Plotly chart from benchmark rows."""
     groups = defaultdict(list)
     for row in rows:
-        groups[
-            (row["operation"], row["input_order"], row["container"])
-        ].append(row)
+        groups[(row["operation"], row["input_order"], row["container"])].append(row)
 
     containers = sorted({row["container"] for row in rows})
-    combinations = {
-        (row["operation"], row["input_order"]) for row in rows
-    }
+    combinations = {(row["operation"], row["input_order"]) for row in rows}
     combinations = sorted(
         combinations,
         key=lambda item: (
@@ -88,8 +84,7 @@ def build_chart(rows):
                     legendgroup=container,
                     visible=(operation, input_order) == combinations[0],
                     customdata=[
-                        [row["iterations"], row["input_order"]]
-                        for row in points
+                        [row["iterations"], row["input_order"]] for row in points
                     ],
                     hovertemplate=(
                         "Container: %{fullData.name}<br>"
@@ -127,8 +122,7 @@ def build_chart(rows):
     first_operation, first_input_order = combinations[0]
     fig.update_layout(
         title=(
-            f"{first_operation} ({first_input_order}): "
-            "benchmark time by input size"
+            f"{first_operation} ({first_input_order}): " "benchmark time by input size"
         ),
         xaxis_title="Input size",
         yaxis_title="Nanoseconds per operation",
