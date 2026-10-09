@@ -1,15 +1,15 @@
 CXXFLAGS = -std=c++23 -O3 -fno-tree-dce -fno-lto
-OBJECTS = algorithms/list.o algorithms/forward_list.o algorithms/vector.o
+OBJECTS = src/list.o src/forward_list.o src/vector.o
 
 all: test index.html
 
-algorithms/%.o: algorithms/%.cc
+src/%.o: src/%.cc
 	g++ $(CXXFLAGS) -c $< -o $@
 
-bench: $(OBJECTS) algorithms/bench.o
+bench: $(OBJECTS) src/bench.o
 	g++ $(CXXFLAGS) $^ -o $@
 
-test: $(OBJECTS) algorithms/test.o
+test: $(OBJECTS) src/test.o
 	g++ $(CXXFLAGS) $^ -o $@
 	./test
 
@@ -20,7 +20,7 @@ index.html: bench.csv analyze.py
 	uv run python3 analyze.py
 
 format:
-	clang-format -i algorithms/*.cc algorithms/*.hh
+	clang-format -i src/*.cc src/*.hh
 
 clean:
-	rm -rf bin index.html uv.lock venv .venv algorithms/*.o *.csv test bench
+	rm -rf bin index.html uv.lock venv .venv src/*.o *.csv test bench
