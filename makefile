@@ -1,4 +1,4 @@
-CXXFLAGS = -std=c++23 -O3 -fno-tree-dce -fno-lto
+CXXFLAGS = -std=c++23 -O3 -fno-tree-dce -fno-lto -Wno-terminate
 OBJECTS = src/list.o src/forward_list.o src/vector.o
 
 all: test index.html
