@@ -107,6 +107,30 @@ int main() {
 
     benchmark(output, "clear", size, size, iterations,
               [](auto &l, std::size_t) { l.clear(); });
+
+    benchmark(output, "sort_bubble", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_bubble(); });
+
+    benchmark(output, "sort_insertion", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_insertion(); });
+
+    benchmark(output, "sort_selection", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_selection(); });
+
+    benchmark(output, "sort_merge", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_merge(); });
+
+    benchmark(output, "sort_quick", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_quick(); });
+
+    benchmark(output, "sort_heap", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_heap(); });
+
+    benchmark(output, "sort_shell", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_shell(); });
+
+    benchmark(output, "sort_tim", size, size, iterations,
+              [](auto &l, std::size_t) { l.sort_tim(); });
   }
 
   std::println("Benchmark results written to bench.csv");
