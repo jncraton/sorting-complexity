@@ -23,6 +23,31 @@ Each student or group implements sorting algorithms as methods within C++ contai
 
 Students can contribute and review one another's work using pull requests. When this project is hosted on GitHub, GitHub Actions will automatically build the dashboard and push it to GitHub Pages for review.
 
+### Implement Methods
+
+Students implement the following methods on a custom dynamic array, linked list, and doubly linked list along the lines of a [SequenceContainer](https://en.cppreference.com/cpp/named_req/SequenceContainer):
+
+- at
+- []
+- insert
+- clear
+- front
+- back
+- push_back
+- pop_back
+- push_front
+- pop_front
+- sort_bubble
+- sort_insertion
+- sort_selection
+- sort_merge
+- sort_quick
+- sort_heap
+- sort_shell
+- sort_tim
+
+An overloaded comparison count can be used to produce more precise sort algorithm performance.
+
 ## Building
 
 Running the included `makefile` will build all files, run analysis and generate the dashboard (`index.html`). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
