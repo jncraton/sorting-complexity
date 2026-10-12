@@ -1,6 +1,6 @@
 # Sorting Through Complexity
 
-An introductory exploration of complexity theory through open science and open pedagogy.
+An introductory exploration of complexity theory through [open science](https://en.wikipedia.org/wiki/Open_science) and [open pedagogy](https://en.wikipedia.org/wiki/Open_pedagogy).
 
 ![Bubble Sort](https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif)
 
