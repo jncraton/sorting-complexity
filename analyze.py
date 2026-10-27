@@ -1,7 +1,7 @@
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.12"
 # dependencies = [
-#   "plotly",
+#   "plotly>=5.24.0",
 # ]
 # ///
 
