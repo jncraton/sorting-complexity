@@ -24,6 +24,9 @@ readme.pdf: readme.md
 	pandoc -f markdown -t pdf readme-no-anim.md -o $@
 	rm -f readme-no-anim.md
 
+sorting-complexity.zip:
+	zip $@ * src/*
+
 handout:
 	python3 handout.py src/vector.cc src/vector.cc
 	python3 handout.py src/forward_list.cc src/forward_list.cc
