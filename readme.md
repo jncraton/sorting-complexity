@@ -15,40 +15,44 @@ After completing this project, students will be able to:
 ![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/330px-UNESCO-Open_science-pillars-en.png)
 
 
-## Task
+## Project
 
-Each student or group implements sorting algorithms as methods within C++ container classes (`list`, `forward_list`, and `vector`). These containers are used in a test harness that measures wall time and the number of comparisons performed for various input sizes. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
+Each student or group implements list operations and sorting algorithms as methods within C++ container classes (`list`, `forward_list`, and `vector`). These containers are used in a student-designed test harness to confirm correctness and measure wall time and the number of comparisons performed for various input sizes. The harness outputs a structured [csv](https://en.wikipedia.org/wiki/Comma-separated_values) file with these raw results. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
 
 [Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
-Students can contribute and review one another's work using pull requests. When this project is hosted on GitHub, GitHub Actions will automatically build the dashboard and push it to GitHub Pages for review.
+Students can contribute and review one another's work using pull requests. GitHub Actions or other automated [CI/CD](https://en.wikipedia.org/wiki/CI/CD) tools can automatically build the dashboard and publish it for review.
 
-### Implement Methods
+### Tasks
 
-Students implement the following methods on a custom dynamic array, linked list, and doubly linked list along the lines of a [SequenceContainer](https://en.cppreference.com/cpp/named_req/SequenceContainer):
+Students implement the following methods on a custom [dynamic array](https://en.wikipedia.org/wiki/Dynamic_array), [linked list](https://en.wikipedia.org/wiki/Linked_list), and [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) along the lines of a [SequenceContainer](https://en.cppreference.com/cpp/named_req/SequenceContainer):
 
-- at
-- []
-- insert
-- clear
-- front
-- back
-- push_back
-- pop_back
-- push_front
-- pop_front
-- sort_bubble
-- sort_insertion
-- sort_selection
-- sort_merge
-- sort_quick
-- sort_heap
-- sort_shell
-- sort_tim
+- Container access and modification methods
+  - at
+  - []
+  - insert
+  - clear
+  - front
+  - back
+  - push_back
+  - pop_back
+  - push_front
+  - pop_front
+- Sorting methods
+  - sort_bubble
+  - sort_insertion
+  - sort_selection
+  - sort_merge
+  - sort_quick
+  - sort_heap
+  - sort_shell
+  - sort_tim
 
-An overloaded comparison count can be used to produce more precise sort algorithm performance.
+## Example Code
 
-## Building
+Example code that an be used as a starting point is provided in a [Github repository](https://github.com/jncraton/sorting-complexity).
+
+### Building
 
 Running the included `makefile` will build all files, run analysis and generate the dashboard (`index.html`). To build the dashboard locally, you'll need Python 3.12, uv, make, and gcc 14.2 or higher. Simply run:
 
@@ -56,7 +60,7 @@ Running the included `makefile` will build all files, run analysis and generate 
 make
 ```
 
-## Analysis
+### Analysis
 
 The following automated analysis is performed and displayed for each container and operation:
 
