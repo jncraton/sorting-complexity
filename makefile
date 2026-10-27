@@ -34,4 +34,4 @@ format:
 	uv run black *.py
 
 clean:
-	rm -rf bin index.html uv.lock venv .venv src/*.o *.csv test bench
+	rm -rf bin index.html uv.lock venv .venv src/*.o *.csv test bench *.pdf
