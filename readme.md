@@ -57,7 +57,7 @@ Students implement the following methods on a custom [dynamic array](https://en.
 
 ## Example Code
 
-Example code that an be used as a starting point is provided in a [Github repository](https://github.com/jncraton/sorting-complexity).
+Example code that can be used as a starting point is provided in a [Github repository](https://github.com/jncraton/sorting-complexity).
 
 ### Building
 
