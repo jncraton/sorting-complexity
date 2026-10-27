@@ -21,6 +21,8 @@ Each student or group implements list operations and sorting algorithms as metho
 
 [Example Dashboard](https://jncraton.github.io/sorting-complexity/)
 
+![Pre-rendered graph](graph.png)
+
 Students can contribute and review one another's work using pull requests. GitHub Actions or other automated [CI/CD](https://en.wikipedia.org/wiki/CI/CD) tools can automatically build the dashboard and publish it for review.
 
 ### Tasks
