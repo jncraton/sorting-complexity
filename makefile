@@ -17,7 +17,7 @@ bench.csv: bench
 	./bench
 
 index.html: bench.csv analyze.py
-	uv run python3 analyze.py
+	uv run analyze.py
 
 readme.pdf: readme.md
 	sed '/\.gif/d' $< > readme-no-anim.md
