@@ -2,7 +2,7 @@
 
 An introductory exploration of complexity theory through [open science](https://en.wikipedia.org/wiki/Open_science) and [open pedagogy](https://en.wikipedia.org/wiki/Open_pedagogy).
 
-## ![PALSave Logo](palsave.svg) ![OCTOPUS LOGO](octopus.svg)
+![PALSave Logo](palsave.svg) ![OCTOPUS LOGO](octopus.svg)
 
 This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about) and supported by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants).
 
