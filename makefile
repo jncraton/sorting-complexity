@@ -19,6 +19,11 @@ bench.csv: bench
 index.html: bench.csv analyze.py
 	uv run python3 analyze.py
 
+readme.pdf: readme.md
+	sed '/\.gif/d' $< > readme-no-anim.md
+	pandoc -f markdown -t pdf readme-no-anim.md -o $@
+	rm -f readme-no-anim.md
+
 handout:
 	python3 handout.py src/vector.cc src/vector.cc
 	python3 handout.py src/forward_list.cc src/forward_list.cc
