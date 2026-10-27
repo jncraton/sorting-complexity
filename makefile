@@ -21,7 +21,7 @@ index.html: bench.csv analyze.py
 
 readme.pdf: readme.md
 	sed '/\.gif/d' $< > readme-no-anim.md
-	pandoc -f markdown -t pdf readme-no-anim.md -o $@
+	pandoc -f markdown -t pdf -V geometry:margin=1.25in readme-no-anim.md -o $@
 	rm -f readme-no-anim.md
 
 sorting-complexity.zip:
