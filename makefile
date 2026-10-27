@@ -25,7 +25,7 @@ readme.pdf: readme.md
 	rm -f readme-no-anim.md
 
 sorting-complexity.zip:
-	zip $@ * src/*
+	zip $@ * src/* .github/workflows/*
 
 handout:
 	python3 handout.py src/vector.cc src/vector.cc
