@@ -14,13 +14,17 @@ After completing this project, students will be able to:
 
 ## Project
 
-Each student or group implements list operations and sorting algorithms as methods within C++ container classes (`list`, `forward_list`, and `vector`). These containers are used in a student-designed test harness to confirm correctness and measure wall time and the number of comparisons performed for various input sizes. The harness outputs a structured [csv](https://en.wikipedia.org/wiki/Comma-separated_values) file with these raw results. A shared web dashboard is updated to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
+Each student or group implements list operations and sorting algorithms as methods within C++ container classes (`list`, `forward_list`, and `vector`). These containers are used in a student-designed test harness to confirm correctness and measure wall time and the number of comparisons performed for various input sizes. The harness outputs a structured [csv](https://en.wikipedia.org/wiki/Comma-separated_values) file with these raw results. A web dashboard is created to allow comparison and exploration of the included algorithms and data structures. The dashboard compares the programs in terms of both wall time and the number of operations used.
 
-[Example Dashboard](https://jncraton.github.io/sorting-complexity/)
+An [example hosted dashboard](https://jncraton.github.io/sorting-complexity/) is available on the Github Pages site associated with the example code.
 
 ![Pre-rendered graph](graph.png)
 
 Students can contribute and review one another's work using pull requests. GitHub Actions or other automated [CI/CD](https://en.wikipedia.org/wiki/CI/CD) tools can automatically build the dashboard and publish it for review.
+
+### Timeline
+
+This learning experience was originally crafted to be completed in class by small groups of students over several weeks. Group work time with instructor support was provided interleaved with content on the included sorting algorithms and an introduction to complexity theory.
 
 ### Tasks
 
@@ -72,5 +76,3 @@ The following automated analysis is performed and displayed for each container a
 ## OCTOPUS and PALSave
 
 This open resource is part of the [OCTOPUS project](https://qubeshub.org/community/groups/octopus/about) and supported by a [PALSave Open Pedagogy grant](https://palni.org/palsave/open-pedagogy-grants).
-
-![Open Science pillars](https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/UNESCO-Open_science-pillars-en.png/330px-UNESCO-Open_science-pillars-en.png)
