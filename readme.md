@@ -69,10 +69,12 @@ make
 
 ### Analysis
 
-The following automated analysis is performed and displayed for each container and operation:
+The following automated analysis is performed and displayed for each container and operation in the example code:
 
 1. The containers are compiled using `g++ -std=c++23`.
 2. The `bench` program measures the time taken for various operations (e.g., `push_back`, `insert`, `sort_quick`) across different input sizes.
 3. A `TrackedInt` class is used to count the number of comparisons performed during sorting.
 4. The results are saved to `bench.csv`.
 5. `analyze.py` processes the CSV to generate an interactive Plotly dashboard (`index.html`) comparing performance across containers and algorithms.
+
+Students could implement some or all of the above themselves depending on the specific learning goals for the project.
