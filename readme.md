@@ -77,4 +77,4 @@ The following automated analysis is performed and displayed for each container a
 4. The results are saved to `bench.csv`.
 5. `analyze.py` processes the CSV to generate an interactive Plotly dashboard (`index.html`) comparing performance across containers and algorithms.
 
-Students could implement some or all of the above themselves depending on the specific learning goals for the project.
+Students could implement some or all of the above themselves, depending on the specific learning goals for the project.
